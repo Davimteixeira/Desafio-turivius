@@ -1,0 +1,53 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Folder media and static
+**/media/
+**/static/
+
+# tests and coverage
+*.pytest_cache
+.coverage
+
+# venv
+env
+venv
+
+# db files
+*.db
+*.dat
+*.bak
+*.dir
+*.sqlite3
+
+# env files
+*.env
+.env.*
+
+# Elastic Beanstalk Logs
+logs/
+
+# Pylint configs
+pylintrc
+
+# VSCode
+.vscode
+
+# Notebooks
+.ipynb_checkpoints
+
+# data
+etl/data
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+**/.elasticbeanstalk/logs/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Django Media Files
+media/
+
+#personal scripts
+clear-migrations
