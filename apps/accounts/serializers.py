@@ -46,9 +46,32 @@ class RegisterNewUserSerializer(serializers.Serializer):
             'username': instance.username,
             'password': self.gen_password
         }
+
+class TokenObtainPairSerializerCustom(TokenObtainPairSerializer):
+
+    @classmethod
+    def get_token(cls, user):
+        return RefreshToken.for_user(user)
+
+    def validate(self, attrs):
+        data = super().validate(attrs)
+
+        # Retorna informações do usuário juntamente com os tokens
+        serializer = TokenUserSerializer(self.user)
+        data['user'] = serializer.data
+        return data
+
+class TokenUserSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    is_first_login = serializers.BooleanField(read_only=True)
+    email = serializers.EmailField(read_only=True)
     
 class RegisterNewUserResponseSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     username = serializers.CharField()
     password = serializers.CharField()
-    
+
+class TokenResponseSerializer(serializers.Serializer):
+    refresh = serializers.CharField()
+    access = serializers.CharField()
+    user = TokenUserSerializer()
