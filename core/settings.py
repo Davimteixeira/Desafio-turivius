@@ -17,8 +17,7 @@ import os
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Overlay Default User
 AUTH_USER_MODEL = "apps_accounts.CustomUser"
@@ -45,6 +44,9 @@ INSTALLED_APPS = [
     'rest_framework_nested',
     'rest_framework.authtoken',   
     'rest_framework_simplejwt.token_blacklist',
+    
+    'apps.accounts',
+    'apps.tasks'
 
 ]
 
@@ -87,8 +89,7 @@ USE_TZ = False
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-MEDIA_URL= 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -219,8 +220,9 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-MEDIA_DIRS = (os.path.join(BASE_DIR, 'media'),)
+# Configurações de arquivos de mídia
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LANGUAGE_CODE = "pt-br"
 LANGUAGES = [
