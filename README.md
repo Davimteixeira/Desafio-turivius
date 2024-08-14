@@ -50,7 +50,7 @@ $
 > Nota: Para utilizar o aplicativo, é necessário atualizar o arquivo exemple.env na raiz do projeto, você deve alterar seu nome para .env
 > <br />
 
-## ✨ Como Executar no Docker (Deploy)
+## ✨ Como Executar no Docker
 
 1. Clone o repositório
 1. Baixe os arquivos .env e copie-os para o diretório core conforme informado no tópico anterior. Certifique-se de tê-lo na raiz do projeto
