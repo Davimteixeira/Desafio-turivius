@@ -38,6 +38,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'api/', include('apps.accounts.urls')),
+    path(r'api/', include('apps.tasks.urls')),
 
 
     re_path(r'^(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
