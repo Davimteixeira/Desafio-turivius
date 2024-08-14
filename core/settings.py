@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Overlay Default User
-# AUTH_USER_MODEL = "apps_accounts.CustomUser"
+AUTH_USER_MODEL = "apps_accounts.CustomUser"
 
 # Application definition
 INSTALLED_APPS = [
