@@ -7,12 +7,12 @@ class CustomUserAdmin(UserAdmin):
     model = CustomUser
 
     fieldsets = UserAdmin.fieldsets + (
-            (None, {'fields': ('type','is_first_login')}),
+            (None, {'fields': ('is_first_login',)}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('username', 'password1', 'password2', 'type'),
+            'fields': ('username', 'password1', 'password2'),
         }),
     )
 
